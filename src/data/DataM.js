@@ -12,82 +12,102 @@ import Discord from '../assets/discord.png'
 export const board = [
   {
     img: react,
-    id: 'react'
+    id: 'react',
+    state: ''
   },
   {
     img: react,
-    id: 'react'
+    id: 'react',
+    state: ''
   },
   {
     img: Csharp,
-    id: 'Csharp'
+    id: 'Csharp',
+    state: ''
   },
   {
     img: Csharp,
-    id: 'Csharp'
+    id: 'Csharp',
+    state: ''
   },
   {
     img: Js,
-    id: 'Js'
+    id: 'Js',
+    state: ''
   },
   {
     img: Js,
-    id: 'Js'
+    id: 'Js',
+    state: ''
   },
   {
     img: Css,
-    id: 'Css'
+    id: 'Css',
+    state: ''
   },
   {
     img: Css,
-    id: 'Css'
+    id: 'Css',
+    state: ''
   },
   {
     img: Github,
-    id: 'Github'
+    id: 'Github',
+    state: ''
   },
   {
     img: Github,
-    id: 'Github'
+    id: 'Github',
+    state: ''
   },
   {
     img: Html5,
-    id: 'Html5'
+    id: 'Html5',
+    state: ''
   },
   {
     img: Html5,
-    id: 'Html5'
+    id: 'Html5',
+    state: ''
   },
   {
     img: Vs,
-    id: 'Vs'
+    id: 'Vs',
+    state: ''
   },
   {
     img: Vs,
-    id: 'Vs'
+    id: 'Vs',
+    state: ''
   },
   {
     img: Python,
-    id: 'Python'
+    id: 'Python',
+    state: ''
   },
   {
     img: Python,
-    id: 'Python'
+    id: 'Python',
+    state: ''
   },
   {
     img: Postgre,
-    id: 'Postgre'
+    id: 'Postgre',
+    state: ''
   },
   {
     img: Postgre,
-    id: 'Postgre'
+    id: 'Postgre',
+    state: ''
   },
   {
     img: Discord,
-    id: 'Discord'
+    id: 'Discord',
+    state: ''
   },
   {
     img: Discord,
-    id: 'Discord'
+    id: 'Discord',
+    state: ''
   }
 ]

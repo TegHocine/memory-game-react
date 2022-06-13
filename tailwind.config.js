@@ -4,8 +4,16 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateColumns: {
-        // Simple 16 column grid
         auto: 'repeat(auto-fill, minmax(100px, 1fr))'
+      },
+      keyframes: {
+        scale: {
+          '0%, 70%': { transform: 'scale(0.8)' },
+          '100%': { transform: 'scale(0)' }
+        }
+      },
+      animation: {
+        scale: 'scale 3s ease'
       }
     }
   },
