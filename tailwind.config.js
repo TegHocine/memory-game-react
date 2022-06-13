@@ -13,7 +13,7 @@ module.exports = {
         }
       },
       animation: {
-        scale: 'scale 3s ease'
+        scale: 'scale 2s ease'
       }
     }
   },
