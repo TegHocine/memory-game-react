@@ -6,40 +6,36 @@ import { board } from '../../data/DataM'
 
 const Board = () => {
   const [memory, setMemory] = useState(board.sort(() => Math.random() - 0.5))
-  const [prev, setPrev] = useState(null)
+  const [prev, setPrev] = useState(-1)
 
+  const check = (current) => {
+    if (memory[current].id === memory[prev].id) {
+      memory[prev].state = 'correct'
+      memory[current].state = 'correct'
+      setMemory([...memory])
+      setPrev(-1)
+    } else {
+      memory[prev].state = 'wrong'
+      memory[current].state = 'wrong'
+      setMemory([...memory])
+      setPrev(-1)
+
+      setTimeout(() => {
+        memory[prev].state = ''
+        memory[current].state = ''
+        setMemory([...memory])
+        setPrev(-1)
+      }, 1000)
+    }
+  }
   const handleClick = (id) => {
-    if (prev === null) {
+    if (prev === -1) {
       memory[id].state = 'active'
       setMemory([...memory])
       setPrev(id)
     } else {
       check(id)
     }
-  }
-  const check = (current) => {
-    if (memory[current].id === memory[prev].id) {
-      memory[prev].state = 'correct'
-      memory[current].state = 'correct'
-      setMemory([...memory])
-      setPrev(null)
-    } else {
-      memory[prev].state = 'wrong'
-      memory[current].state = 'wrong'
-      setMemory([...memory])
-      setPrev(null)
-
-      setTimeout(() => {
-        memory[prev].state = ''
-        memory[current].state = ''
-        setMemory([...memory])
-        setPrev(null)
-      }, 1000)
-    }
-  }
-
-  const playAgain = () => {
-    window.location.reload(false)
   }
 
   return (
@@ -55,13 +51,6 @@ const Board = () => {
             handleClick={handleClick}
           />
         ))}
-      </div>
-      <div className='w-full  flex justify-center items-center'>
-        <button
-          className='text-white font-bold  py-1 px-4 bg-teal-700 mt-6 rounded-full'
-          onClick={playAgain}>
-          Play Again
-        </button>
       </div>
     </div>
   )

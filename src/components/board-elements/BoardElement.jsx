@@ -4,18 +4,22 @@ const BoardElement = ({ index, img, id, state, handleClick }) => {
   const activeClass =
     state === 'active' || state === 'correct' || state === 'wrong'
       ? 'scale-100'
-      : ''
-  const correctClass = state === 'correct' ? 'bg-teal-700' : ''
-  const wrongClass = state === 'wrong' ? 'bg-red-700' : ''
+      : 'scale-0'
+  const bgColor =
+    state === 'correct' ? '#0D9488' : state === 'wrong' ? '#DC2626' : '#374151'
 
+  const style = {
+    backgroundColor: bgColor
+  }
   return (
     <div
-      className={`p-4 bg-gray-700 w-full rounded-xl ${wrongClass} ${correctClass}`}
+      className={`p-4  w-full rounded-xl`}
+      style={style}
       onClick={() => handleClick(index)}>
       <img
         src={img}
         alt={id}
-        className={`scale-0 animate-scale transition-all duration-1000 ${activeClass}`}
+        className={` animate-scale transition-all duration-1000 ${activeClass}`}
       />
     </div>
   )
