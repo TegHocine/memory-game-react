@@ -8,34 +8,35 @@ const Board = () => {
   const [memory, setMemory] = useState(board.sort(() => Math.random() - 0.5))
   const [prev, setPrev] = useState(null)
 
-  const handleClick = (id) => {
-    if (prev === null) {
-      memory[id].state = 'active'
-      setMemory([...memory])
-      setPrev(id)
-    } else {
-      check(id)
-    }
+  const [prevId, setPrevId] = useState(null)
+
+  const handleClick = (index, id) => {
+    if (id === prevId) return
+    if (memory[index].state === 'correct') return
+    if (prev !== null) return check(index)
+
+    memory[index].state = 'active'
+    setMemory([...memory])
+    setPrev(index)
+    setPrevId(id)
   }
   const check = (current) => {
-    if (memory[current].id === memory[prev].id) {
-      memory[prev].state = 'correct'
-      memory[current].state = 'correct'
-      setMemory([...memory])
-      setPrev(null)
-    } else {
+    if (memory[current].imgId !== memory[prev].imgId) {
       memory[prev].state = 'wrong'
       memory[current].state = 'wrong'
       setMemory([...memory])
       setPrev(null)
-
-      setTimeout(() => {
+      return setTimeout(() => {
         memory[prev].state = ''
         memory[current].state = ''
         setMemory([...memory])
         setPrev(null)
-      }, 1000)
+      }, 500)
     }
+    memory[prev].state = 'correct'
+    memory[current].state = 'correct'
+    setMemory([...memory])
+    setPrev(null)
   }
 
   const playAgain = () => {
@@ -49,8 +50,9 @@ const Board = () => {
           <BoardElement
             key={i}
             index={i}
-            img={board.img}
             id={board.id}
+            img={board.img}
+            imgId={board.imgId}
             state={board.state}
             handleClick={handleClick}
           />

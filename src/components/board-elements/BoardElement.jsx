@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BoardElement = ({ index, img, id, state, handleClick }) => {
+const BoardElement = ({ index, img, id, imgId, state, handleClick }) => {
   const activeClass =
     state === 'active' || state === 'correct' || state === 'wrong'
       ? 'scale-100'
@@ -15,10 +15,10 @@ const BoardElement = ({ index, img, id, state, handleClick }) => {
     <div
       className={`p-4  w-full rounded-xl`}
       style={style}
-      onClick={() => handleClick(index)}>
+      onClick={() => handleClick(index, id)}>
       <img
         src={img}
-        alt={id}
+        alt={imgId}
         className={` animate-scale transition-all duration-1000 ${activeClass}`}
       />
     </div>
